@@ -2,16 +2,16 @@
 /*
 Plugin Name:       	Random Post for Widget
 Plugin URI:        	http://www.shashionline.in/random-post-widget-wordpress/
-Description: 		Random Post for Widget will show random post on your sidebar
-Author URI:        	http://www.shashionline.in/about-me/
+Description: 		Random Post for Widget will show random post on your sidebar. You can exclude certain posts by ID.
+Author URI:        	http://www.shashionline.in/
 Author:            	Shashidhar Kumar
 Donate link: 		http://www.shashionline.in/
-Tags: 				plugin, posts, random, random post, random posts, simple plugin, widget, Wordpress
+Tags: 			    plugin, posts, random, random post, random posts, simple plugin, widget, Wordpress
 Requires at least: 	3.0
 Tested up to: 		3.3.2
 Stable tag: 		trunk
-Version:           	1.0
-License: 			GPLv2 or later
+Version:           	2.0
+License: 		    GPLv2 or later
 License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
 */
  
@@ -29,10 +29,12 @@ class RandomPostForWidget extends WP_Widget
     $instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
     $title = $instance['title'];
 	$noofpost = $instance['noofpost'];
+	$hidepost = $instance['hidepost'];
 ?>
   <p>
   <label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" /></label>
   <label for="<?php echo $this->get_field_id('noofpost'); ?>">No. of Post: <input class="widefat" id="<?php echo $this->get_field_id('noofpost'); ?>" name="<?php echo $this->get_field_name('noofpost'); ?>" type="text" value="<?php echo attribute_escape($noofpost); ?>" /></label>
+  <label for="<?php echo $this->get_field_id('hidepost'); ?>">Exclude Posts by ID(comma seperated): <input class="widefat" id="<?php echo $this->get_field_id('hidepost'); ?>" name="<?php echo $this->get_field_name('hidepost'); ?>" type="text" value="<?php echo attribute_escape($hidepost); ?>" /></label>
   </p>
 <?php
   }
@@ -42,6 +44,7 @@ class RandomPostForWidget extends WP_Widget
     $instance = $old_instance;
     $instance['title'] = $new_instance['title'];
 	$instance['noofpost'] = $new_instance['noofpost'];
+	$instance['hidepost'] = $new_instance['hidepost'];
     return $instance;
   }
  
@@ -52,6 +55,7 @@ class RandomPostForWidget extends WP_Widget
     echo $before_widget;
     $title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
 	$noofpost = $instance['noofpost'];
+	$hidepost = $instance['hidepost'];
  
     if (!empty($title))
       echo $before_title . $title . $after_title;
@@ -64,13 +68,18 @@ class RandomPostForWidget extends WP_Widget
 	 		$noofpost=5; 
 	  	}
     // WIDGET CODE GOES HERE
-	//query_posts('posts_per_page=2&orderby=rand');
-	query_posts('posts_per_page='.$noofpost.'&orderby=rand');
+	$arr = explode(",",$hidepost);
+	$args = array(
+	'post__not_in' => $arr,
+	'post_type' => 'post',
+	'posts_per_page' => $noofpost,
+	'orderby' => rand
+	);
+	query_posts( $args );
 	if (have_posts()) : 
 		echo "<ul>";
 		while (have_posts()) : the_post(); 
 			echo "<li><a href='".get_permalink()."'>".get_the_title();
-			//echo the_post_thumbnail(array(220,200));
 			echo "</a></li>";	
 	 
 		endwhile;

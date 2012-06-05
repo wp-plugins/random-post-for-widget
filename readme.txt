@@ -2,22 +2,22 @@
 Contributors: 		shashidharkumar
 Plugin Name:       	Random Post for Widget
 Plugin URI:        	http://www.shashionline.in/random-post-widget-wordpress/
-Author URI:        	http://www.shashionline.in/about-me/
+Author URI:        	http://www.shashionline.in/
 Author:            	Shashidhar Kumar
 Donate link: 		http://www.shashionline.in/
 Tags: 			plugin, posts, random, random post, random posts, simple plugin, widget, Wordpress
 Requires at least: 	3.0
 Tested up to: 		3.3.2
-Stable tag: 		trunk
-Version:           	1.0
+Stable tag: 		1.1
+Version:           	2.0
 License: 		GPLv2 or later
 License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
 
-This simple plugin is a widget that displays a list of random posts on your sidebar.
+This simple plugin is a widget that displays a list of random posts on your sidebar. You can exclude certain posts by ID.
 
 == Description ==
 
-This simple plugin is a widget that displays a list of random posts on your sidebar.
+This simple plugin is a widget that displays a list of random posts on your sidebar. You can exclude certain posts by ID.
 
 == Installation ==
 
