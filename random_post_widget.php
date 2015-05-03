@@ -5,7 +5,7 @@ Plugin URI:        	http://www.shashidharkumar.com/random-post-widget-wordpress/
 Description: 		Random Post for Widget will show random post on your sidebar. You can exclude certain posts by ID.
 Author URI:        	http://www.shashidharkumar.com/
 Author:            	Shashidhar Kumar
-Donate link: 		http://www.shashidharkumar.com/
+Donate link: 		http://www.shashidharkumar.com/donate/
 Tags: 			    plugin, posts, random, random post, random posts, simple plugin, widget, Wordpress
 Requires at least: 	4.0
 Tested up to: 		4.2.1
