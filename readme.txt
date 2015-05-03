@@ -1,15 +1,15 @@
 === Plugin Name ===
 Contributors: 		shashidharkumar
 Plugin Name:       	Random Post for Widget
-Plugin URI:        	http://www.shashionline.in/random-post-widget-wordpress/
-Author URI:        	http://www.shashionline.in/
+Plugin URI:        	http://www.shashidharkumar.com/random-post-widget-wordpress/
+Author URI:        	http://www.shashidharkumar.com/
 Author:            	Shashidhar Kumar
-Donate link: 		http://www.shashionline.in/
+Donate link: 		http://www.shashidharkumar.com/
 Tags: 			plugin, posts, random, random post, random posts, simple plugin, widget, Wordpress
-Requires at least: 	3.0
-Tested up to: 		3.3.2
+Requires at least: 	4.0
+Tested up to: 		4.2.1
 Stable tag: 		trunk
-Version:           	2.0
+Version:           	3.1
 License: 		GPLv2 or later
 License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
 
